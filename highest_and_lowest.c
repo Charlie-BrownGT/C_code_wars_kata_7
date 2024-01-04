@@ -2,8 +2,16 @@
 
 void high_and_low (const char *strnum, char *result)
 {
-
-    int maximum, minimum;
-// print your answer to result
-	sprintf(result, "666 -666");
+  int min = 2147483647;
+  int max = -2147483648;
+  char *ptr = strnum;
+  int num = 0;
+  while (*ptr)
+  {
+    printf("%s", ptr);
+    num = (int) strtoul(ptr, &ptr, 10);
+    if (num > max) max = num;
+    if (num < min) min = num;
+  }
+	sprintf(result, "%d %d", max, min); // print your answer to result
 }
